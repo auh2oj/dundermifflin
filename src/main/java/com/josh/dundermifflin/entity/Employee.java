@@ -8,7 +8,11 @@ public class Employee {
 	private String email;
 	private String department;
 	private String branch;
+	private int managerId;
 	private byte[] image;
+	
+	public Employee() {}
+	
 	public int getEmployeeId() {
 		return employeeId;
 	}
@@ -39,6 +43,14 @@ public class Employee {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+
 	public byte[] getImage() {
 		return image;
 	}
