@@ -1,8 +1,9 @@
-package com.josh.dundermifflin.entity;
+package com.josh.dundermifflin.web.controller.model;
 
 import java.util.Arrays;
 
-public class Employee {
+public class EmployeeForm {
+
 	private int employeeId;
 	private String name;
 	private String email;
@@ -11,7 +12,7 @@ public class Employee {
 	private int managerId;
 	private byte[] image;
 	
-	public Employee() {}
+	public EmployeeForm() {}
 	
 	public int getEmployeeId() {
 		return employeeId;
@@ -60,8 +61,9 @@ public class Employee {
 	
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", name=" + name + ", email=" + email + ", department="
+		return "EmployeeForm [employeeId=" + employeeId + ", name=" + name + ", email=" + email + ", department="
 				+ department + ", branch=" + branch + ", image=" + Arrays.toString(image) + "]";
 	}
 	
 }
+
