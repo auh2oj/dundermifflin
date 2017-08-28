@@ -9,7 +9,7 @@ public class EmployeeForm {
 	private String email;
 	private String department;
 	private String branch;
-	private int managerId;
+	private String managerId;
 	private byte[] image;
 	
 	public EmployeeForm() {}
@@ -44,11 +44,11 @@ public class EmployeeForm {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	public int getManagerId() {
+	public String getManagerId() {
 		return managerId;
 	}
 
-	public void setManagerId(int managerId) {
+	public void setManagerId(String managerId) {
 		this.managerId = managerId;
 	}
 

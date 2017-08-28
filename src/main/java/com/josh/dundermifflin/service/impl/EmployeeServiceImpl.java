@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.josh.dundermifflin.dao.EmployeeDao;
 import com.josh.dundermifflin.dao.entity.Employee;
 import com.josh.dundermifflin.service.EmployeeService;
 import com.josh.dundermifflin.web.controller.model.EmployeeForm;
 
+@Service("EmployeeServiceImpl")
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Autowired

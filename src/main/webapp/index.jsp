@@ -52,7 +52,7 @@
         
 		<div class="form-group">
             <label>Manager ID:</label>
-            <input type="number" class="form-control"  name="managerId" placeholder="managerId" style="margin-left: 40px;width: 400px;display: inline;margin-right: 40px;" ng-model="managerId"/>
+            <input type="text" class="form-control"  name="managerId" placeholder="managerId" style="margin-left: 40px;width: 400px;display: inline;margin-right: 40px;" ng-model="managerId"/>
               <br/>   <br/>
         </div>
         

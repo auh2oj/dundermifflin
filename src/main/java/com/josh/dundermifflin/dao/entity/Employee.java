@@ -32,8 +32,8 @@ public class Employee {
 	@Column(length=100)
 	private String branch;
 	
-	@Column
-	private int managerId;
+	@Column(length=10)
+	private String managerId;
 	
 	@Column(columnDefinition="longblob")
 	private byte[] image;
@@ -70,11 +70,11 @@ public class Employee {
 	public void setBranch(String branch) {
 		this.branch = branch;
 	}
-	public int getManagerId() {
+	public String getManagerId() {
 		return managerId;
 	}
 
-	public void setManagerId(int managerId) {
+	public void setManagerId(String managerId) {
 		this.managerId = managerId;
 	}
 
