@@ -36,7 +36,7 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 
 	public List<Employee> listEmployees() {
 		List<Employee> employeeList = 
-				(List<Employee>) super.getHibernateTemplate().find("from Employees");
+				(List<Employee>) super.getHibernateTemplate().find("from Employee");
 		return employeeList;
 	}
 
