@@ -12,17 +12,10 @@
 	   		http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	   			http://www.springframework.org/schema/mvc 
 			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-			
-	<!-- 
-	DriverManagerDataSource is DataSource type
-	 -->	
-	<bean id="employeeDataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		scope="singleton">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/JOSHDATA?createDatabaseIfNotExist=true" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
-	</bean>
-	
-	</beans>
+				
+		<import resource="employee-dao.xml"/>
+		<import resource="employee-service.xml"/>
+		<import resource="spring-hibernate-service.xml"/>
+				
+				
+	</beans>		
