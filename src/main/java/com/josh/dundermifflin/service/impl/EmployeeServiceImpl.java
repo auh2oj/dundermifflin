@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		List<EmployeeForm> employeeFormList = new ArrayList<EmployeeForm>();
 		for (Employee employee : employeeList) {
 			EmployeeForm employeeForm = new EmployeeForm();
-			BeanUtils.copyProperties(employeeForm, employee);
+			BeanUtils.copyProperties(employee, employeeForm);
 			employeeFormList.add(employeeForm);
 		}
 		return employeeFormList;

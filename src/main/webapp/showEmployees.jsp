@@ -64,9 +64,9 @@
 
 </head>
 <body>
-<a href="uploadProfile.jsp"><img alt="" src="img/hello.gif" height="120px;">Upload</a>
+<a href="index.jsp"><img alt="" src="img/hello.gif" height="120px;">Add Employee</a>
 
-<a href="showProfiles.do"><img alt="" src="img/show-dogs.png" height="120px;" style="margin-left: 200px;"> <span style="font-size: 20px;">Profiles</span></a>
+<a href="showEmployees.do"><img alt="" src="img/show-dogs.png" height="120px;" style="margin-left: 200px;"> <span style="font-size: 20px;">Employees</span></a>
 <hr/>
 
 	<span style="color: red;font-size: 16px;">${message}</span>
