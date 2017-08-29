@@ -38,4 +38,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeFormList;
 	}
 
+	public String changePhoto(EmployeeForm ef) {
+		Employee e = new Employee();
+		BeanUtils.copyProperties(ef, e);
+		System.out.println("Employee Form name: "+ef.getName());
+		System.out.println("Employee name: "+e.getName());
+		return employeeDao.changePhoto(e);
+	}
+
+	public byte[] findImageByEid(int eid) {
+		return employeeDao.findImageByEid(eid);
+	}
+
 }

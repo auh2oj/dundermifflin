@@ -40,4 +40,14 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		return employeeList;
 	}
 
+	public String changePhoto(Employee employee) {
+		super.getHibernateTemplate().update(employee);
+		return ApplicationConstants.SUCCESS;
+	}
+
+	public byte[] findImageByEid(int eid) {
+		Employee e = super.getHibernateTemplate().load(Employee.class, eid);
+		return e.getImage();
+	}
+
 }

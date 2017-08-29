@@ -33,9 +33,9 @@
 
   <script type="text/javascript">
   			//We are definition function in JavaScript
-   			function openPopup(did) {
-  					  $("#pdid").val(did);
-  					  $("#photoTitle").attr("src","findDogImageByDid.do?did="+did);
+   			function openPopup(eid) {
+  					  $("#pdid").val(eid);
+  					  $("#photoTitle").attr("src","findImageByEid.do?eid="+eid);
    					 $("#uploadImagePopup").modal('show');
    			}
   			
@@ -97,12 +97,16 @@
                 <td><%=ef.getDepartment() %></td>
                 <td><%=ef.getBranch() %></td>
            <td>
-            <a href="donwnloadImage.do?did=<%=ef.getEmployeeId() %>"> 
+<%--             <a href="donwnloadImage.do?did=<%=ef.getEmployeeId() %>"> 
         		   <img src="findDogImageByDid.do?did=<%=ef.getEmployeeId() %>" height="60px;" class="parentimage" >
            </a>
             
              <a href="javascript:openPopup(<%=ef.getEmployeeId() %>);">
               		<img src="img/change.png" height="20px;"/>
+              </a> --%>
+              
+              <a href="javascript:openPopup(<%=ef.getEmployeeId() %>);">
+              		<img src="findImageByEid.do?eid=<%=ef.getEmployeeId() %>" height="60px;" class="parentimage" >
               </a>
            </td>
            
@@ -131,10 +135,10 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">
            <img src="" height="80px;"   id="photoTitle">
-          Upload  Image Popup	</h4>
+          Upload Image	</h4>
         </div>
         <div class="modal-body">
-        <form  action="changeDogImage.do" method="post" name="uploadImageForm"  id="uploadImageForm"  enctype="multipart/form-data">
+        <form  action="changeEmployeePhoto.do" method="post" name="uploadImageForm"  id="uploadImageForm"  enctype="multipart/form-data">
           <input type="hidden" class="form-control" id="pdid"  name="did" style="width: 200px;"/>	
           <div class="form-group">
             <label>Image :</label>

@@ -9,4 +9,8 @@ public interface EmployeeDao {
 	public String addEmployee(Employee e);
 	
 	public List<Employee> listEmployees();
+	
+	public String changePhoto(Employee employee);
+	
+	public byte[] findImageByEid(int eid);
 }

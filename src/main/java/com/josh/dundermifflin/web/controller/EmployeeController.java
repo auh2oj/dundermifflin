@@ -1,6 +1,11 @@
 package com.josh.dundermifflin.web.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -38,5 +43,26 @@ public class EmployeeController {
 		List<EmployeeForm> employeeList = employeeService.listEmployees();
 		model.addAttribute("employeeList", employeeList);
 		return "showEmployees";
+	}
+	
+	@RequestMapping(value="changeEmployeePhoto.do", method=RequestMethod.POST)
+	public String changeEmployeePhoto(@ModelAttribute EmployeeForm ef, Model model) {
+		System.out.println("Controller Employee name: "+ef.getName());
+		employeeService.changePhoto(ef);
+		model.addAttribute("message", "Photo successfully updated.");
+		return "redirect:showEmployees.do";
+	}
+	
+	//Code to render the image on the UI
+	@RequestMapping(value="findImageByEid.do", method=RequestMethod.GET)
+	public void findImageByEid(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		String eid = req.getParameter("eid");
+		byte[] img = employeeService.findImageByEid(Integer.parseInt(eid));		
+		res.setContentType("image/jpg");
+		ServletOutputStream out = res.getOutputStream();
+		if (img != null) {
+			out.write(img);
+			out.flush();
+		}
 	}
 }
