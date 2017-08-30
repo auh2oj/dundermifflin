@@ -13,9 +13,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import com.josh.dundermifflin.dao.EmployeeDao;
 import com.josh.dundermifflin.dao.entity.Employee;
@@ -47,7 +50,7 @@ public class EmployeeController {
 	
 	@RequestMapping(value="changeEmployeePhoto.do", method=RequestMethod.POST)
 	public String changeEmployeePhoto(@ModelAttribute EmployeeForm ef, Model model) {
-		System.out.println("Controller Employee name: "+ef.getName());
+		System.out.println("Controller Employee Form: "+ef);
 		employeeService.changePhoto(ef);
 		model.addAttribute("message", "Photo successfully updated.");
 		return "redirect:showEmployees.do";
@@ -65,4 +68,17 @@ public class EmployeeController {
 			out.flush();
 		}
 	}
+	
+	/**
+	 *  this method will help to upload image to the server
+	 * @param binder
+	 */
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+             // to actually be able to convert Multipart instance to byte[]
+             // we have to register a custom editor
+             binder.registerCustomEditor(byte[].class,
+                                new ByteArrayMultipartFileEditor());
+             // now Spring knows how to handle multipart object and convert them
+    }
 }

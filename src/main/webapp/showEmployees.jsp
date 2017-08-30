@@ -41,7 +41,7 @@
   			
    			function editPopup(did) {
    				
-				  $("#pdid").val(did);
+				  $("#edid").val(did);
 				  //This the code to access the value from a row on the basis rowid
 				  var sno=$("#"+did).children("td:nth-child(1)").text();
 				  var name=$("#"+did).children("td:nth-child(2)").text();
@@ -139,10 +139,10 @@
         </div>
         <div class="modal-body">
         <form  action="changeEmployeePhoto.do" method="post" name="uploadImageForm"  id="uploadImageForm"  enctype="multipart/form-data">
-          <input type="hidden" class="form-control" id="pdid"  name="did" style="width: 200px;"/>	
+          <input type="text" class="form-control" id="pdid"  name="employeeId" style="width: 200px;"/>	
           <div class="form-group">
             <label>Image :</label>
-            <input type="file" class="form-control" id="image" placeholder="Select Image"  name="photo">
+            <input type="file" class="form-control" id="image" placeholder="Select Image"  name="image">
         </div>
     <div class="modal-footer">
           <button type="submit" class="btn btn-danger"  id="uploadImageButton">Upload Image</button>
@@ -168,7 +168,7 @@
         </div>
         <div class="modal-body">
         <form  action="updateDogProfile.do" method="post" name="updateDogProfileForm"  id="updateDogProfileForm" >
-          <input type="hidden" class="form-control" id="pdid"  name="did" style="width: 200px;"/>
+          <input type="hidden" class="form-control" id="edid"  name="did" style="width: 200px;"/>
            <div class="form-group">
             <label>Name :</label>
             <input type="text" class="form-control" id="name" placeholder="Name"  name="name">
