@@ -114,7 +114,7 @@
               <a href="deleteDog.do?did=<%=ef.getEmployeeId()%>"><img alt="" src="img/delete.png" height="24px;"></a>
                /
          	<a href="javascript:editPopup(<%=ef.getEmployeeId()%>)">
-		   			<img alt="" src="img/edit1.png" height="24px;">
+		   			<img alt="" src="img/edit.png" height="24px;">
 		   </a>
               </td>
             </tr>
@@ -139,7 +139,7 @@
         </div>
         <div class="modal-body">
         <form  action="changeEmployeePhoto.do" method="post" name="uploadImageForm"  id="uploadImageForm"  enctype="multipart/form-data">
-          <input type="text" class="form-control" id="pdid"  name="employeeId" style="width: 200px;"/>	
+          <input type="hidden" class="form-control" id="pdid"  name="employeeId" style="width: 200px;"/>	
           <div class="form-group">
             <label>Image :</label>
             <input type="file" class="form-control" id="image" placeholder="Select Image"  name="image">

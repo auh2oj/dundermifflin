@@ -50,7 +50,6 @@ public class EmployeeController {
 	
 	@RequestMapping(value="changeEmployeePhoto.do", method=RequestMethod.POST)
 	public String changeEmployeePhoto(@ModelAttribute EmployeeForm ef, Model model) {
-		System.out.println("Controller Employee Form: "+ef);
 		employeeService.changePhoto(ef);
 		model.addAttribute("message", "Photo successfully updated.");
 		return "redirect:showEmployees.do";
