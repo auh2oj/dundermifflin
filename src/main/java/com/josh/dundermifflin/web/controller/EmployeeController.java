@@ -55,6 +55,13 @@ public class EmployeeController {
 		return "redirect:showEmployees.do";
 	}
 	
+	@RequestMapping(value="updateEmployee.do", method=RequestMethod.POST)
+	public String updateEmployee(@ModelAttribute EmployeeForm ef, Model model) {
+		employeeService.updateEmployee(ef);
+		model.addAttribute("message", "Employee information successfully updated.");
+		return "redirect:showEmployees.do";
+	}
+	
 	//Code to render the image on the UI
 	@RequestMapping(value="findImageByEid.do", method=RequestMethod.GET)
 	public void findImageByEid(HttpServletRequest req, HttpServletResponse res) throws IOException {

@@ -12,5 +12,7 @@ public interface EmployeeService {
 	
 	public String changePhoto(EmployeeForm ef);
 	
+	public String updateEmployee(EmployeeForm ef);
+	
 	public byte[] findImageByEid(int eid);
 }

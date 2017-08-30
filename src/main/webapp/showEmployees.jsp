@@ -39,26 +39,24 @@
    					 $("#uploadImagePopup").modal('show');
    			}
   			
-   			function editPopup(did) {
+   			function editPopup(eid) {
    				
-				  $("#edid").val(did);
+				  $("#edid").val(eid);
 				  //This the code to access the value from a row on the basis rowid
-				  var sno=$("#"+did).children("td:nth-child(1)").text();
-				  var name=$("#"+did).children("td:nth-child(2)").text();
-				  var email=$("#"+did).children("td:nth-child(3)").text();
-				  var breed=$("#"+did).children("td:nth-child(4)").text();
-				  var color=$("#"+did).children("td:nth-child(5)").text();
-				  var price=$("#"+did).children("td:nth-child(6)").text();
+				  var eid=$("#"+eid).children("td:nth-child(1)").text();
+				  var name=$("#"+eid).children("td:nth-child(2)").text();
+				  var email=$("#"+eid).children("td:nth-child(3)").text();
+				  var department=$("#"+eid).children("td:nth-child(4)").text();
+				  var branch=$("#"+eid).children("td:nth-child(5)").text();
 				  
 				  //Code to populate the value into the popup form
 				  $("input[type='text'][name='name']").val(name);
 				  $("input[type='text'][name='email']").val(email);
-				  $("input[type='text'][name='breed']").val(breed);
-				  $("input[type='text'][name='color']").val(color);
-				  $("input[type='text'][name='price']").val(price);
+				  $("input[type='text'][name='department']").val(department);
+				  $("input[type='text'][name='branch']").val(branch);
 				  
-				  $("#ephotoTitle").attr("src","findDogImageByDid.do?did="+did);
-				 $("#editProfilePopup").modal('show');
+				  $("#ephotoTitle").attr("src","findImageByEid.do?eid="+eid);
+				 $("#editEmployeePopup").modal('show');
 			}
    </script>
 
@@ -156,7 +154,7 @@
   </div>
   
           <!-- Modal -->
-  <div class="modal fade" id="editProfilePopup" role="dialog">
+  <div class="modal fade" id="editEmployeePopup" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
@@ -167,8 +165,8 @@
           Edit Employee Information	</h4>
         </div>
         <div class="modal-body">
-        <form  action="updateDogProfile.do" method="post" name="updateDogProfileForm"  id="updateDogProfileForm" >
-          <input type="hidden" class="form-control" id="edid"  name="did" style="width: 200px;"/>
+        <form  action="updateEmployee.do" method="post" name="updateEmployeeForm"  id="updateEmployeeForm" >
+          <input type="hidden" class="form-control" id="edid"  name="employeeId" style="width: 200px;"/>
            <div class="form-group">
             <label>Name :</label>
             <input type="text" class="form-control" id="name" placeholder="Name"  name="name">
@@ -180,23 +178,27 @@
         </div>
         
             <div class="form-group">
-            <label>Breed :</label>
-            <input type="text" class="form-control" id="breed" placeholder="Breed"  name="breed">
+            <label>Department :</label>
+            <input type="text" class="form-control" id="department" placeholder="Department"  name="department">
         </div>
         
         
             <div class="form-group">
-            <label>Color :</label>
-            <input type="text" class="form-control" id="color" placeholder="Color"  name="color">
+            <label>Branch :</label>
+             <select name="branch" class="form-control" id="branch" placeholder="Branch" name="branch">
+             		<option>Scranton, PA</option>
+             		<option>Syracuse, NY</option>
+             		<option>Stamford, CT</option>
+             		<option>New York, NY</option>
+             		<option>Nashua, NH</option>
+             		<option>Ithaca, NY</option>
+             </select>
+            <!-- <input type="text" class="form-control" id="branch" placeholder="Branch"  name="branch"> -->
         </div>
-        
-          <div class="form-group">
-            <label>Price :</label>
-            <input type="text" class="form-control" id="price" placeholder="Price"  name="price">
-        </div>
+
     <div class="modal-footer">
       	 <button type="button" data-dismiss="modal"  class="btn btn-danger"  id="cancel">Cancel</button>
-          <button type="submit" class="btn btn-danger"  id="uploadImageButton">Update Profile</button>
+          <button type="submit" class="btn btn-danger"  id="uploadImageButton">Update Employee Information</button>
         </div>
          </form>
         </div>

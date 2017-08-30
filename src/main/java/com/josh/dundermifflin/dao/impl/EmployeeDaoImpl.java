@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -45,6 +46,17 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		e.setImage(employee.getImage());
 		
 //		super.getHibernateTemplate().update(e);
+		return ApplicationConstants.SUCCESS;
+	}
+	
+	public String updateEmployee(Employee employee) {
+		Employee e = getHibernateTemplate().load(Employee.class, employee.getEmployeeId());
+		//BeanUtils.copyProperties(employee, e);
+		System.out.println(employee);
+		e.setName(employee.getName());
+		e.setEmail(employee.getEmail());
+		e.setDepartment(employee.getDepartment());
+		e.setBranch(employee.getBranch());
 		return ApplicationConstants.SUCCESS;
 	}
 
