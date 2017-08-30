@@ -52,7 +52,6 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 	public String updateEmployee(Employee employee) {
 		Employee e = getHibernateTemplate().load(Employee.class, employee.getEmployeeId());
 		//BeanUtils.copyProperties(employee, e);
-		System.out.println(employee);
 		e.setName(employee.getName());
 		e.setEmail(employee.getEmail());
 		e.setDepartment(employee.getDepartment());

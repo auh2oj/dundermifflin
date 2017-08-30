@@ -47,8 +47,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public String updateEmployee(EmployeeForm ef) {
 		Employee e = new Employee();
 		BeanUtils.copyProperties(ef, e);
-		System.out.println("Employee Form: "+ef);
-		System.out.println("Employee: "+e);
 		return employeeDao.updateEmployee(e);
 	}
 
