@@ -10,6 +10,10 @@ public interface EmployeeDao {
 	
 	public List<Employee> listEmployees();
 	
+	public List<Integer> listEmployeesByEid();
+	
+	public Employee findEmployeeByEid(int eid);
+	
 	public String changePhoto(Employee employee);
 	
 	public String updateEmployee(Employee employee);

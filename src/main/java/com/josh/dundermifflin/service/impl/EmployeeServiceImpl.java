@@ -58,4 +58,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.deleteEmployee(employeeId);
 	}
 
+	public List<Integer> listEmployeesByEid() {
+		return employeeDao.listEmployeesByEid();
+	}
+
+	public EmployeeForm findEmployeeFormByEid(int eid) {
+		Employee e = employeeDao.findEmployeeByEid(eid);
+		EmployeeForm ef = new EmployeeForm();
+		BeanUtils.copyProperties(e, ef);
+		return ef;
+	}
+
 }

@@ -10,6 +10,10 @@ public interface EmployeeService {
 	
 	public List<EmployeeForm> listEmployees();
 	
+	public List<Integer> listEmployeesByEid();
+	
+	public EmployeeForm findEmployeeFormByEid(int eid);
+	
 	public String changePhoto(EmployeeForm ef);
 	
 	public String updateEmployee(EmployeeForm ef);

@@ -70,4 +70,13 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		return ApplicationConstants.DELETED;
 	}
 
+	public List<Integer> listEmployeesByEid() {
+		String sql = "Select employeeId from Employee";
+		return (List<Integer>) getHibernateTemplate().find(sql);
+	}
+
+	public Employee findEmployeeByEid(int eid) {
+		return getHibernateTemplate().get(Employee.class, eid);
+	}
+
 }
