@@ -89,7 +89,7 @@
         %>
         <tbody>
             <tr id="<%=ef.getEmployeeId() %>">
-                <td><%=count++ %></td>
+                <td><%=ef.getEmployeeId() %></td>
                 <td><%=ef.getName() %></td>
                 <td><%=ef.getEmail() %></td>
                 <td><%=ef.getDepartment() %></td>
