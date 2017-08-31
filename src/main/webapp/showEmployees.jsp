@@ -109,7 +109,7 @@
            </td>
            
               <td>
-              <a href="deleteDog.do?did=<%=ef.getEmployeeId()%>"><img alt="" src="img/delete.png" height="24px;"></a>
+              <a href="deleteEmployee.do?eid=<%=ef.getEmployeeId()%>"><img alt="" src="img/delete.png" height="24px;"></a>
                /
          	<a href="javascript:editPopup(<%=ef.getEmployeeId()%>)">
 		   			<img alt="" src="img/edit.png" height="24px;">

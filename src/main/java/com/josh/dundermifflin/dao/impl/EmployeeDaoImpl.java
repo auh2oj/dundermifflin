@@ -64,4 +64,10 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		return e.getImage();
 	}
 
+	public String deleteEmployee(int employeeId) {
+		Employee employee = getHibernateTemplate().load(Employee.class, employeeId);
+		getHibernateTemplate().delete(employee);
+		return ApplicationConstants.DELETED;
+	}
+
 }

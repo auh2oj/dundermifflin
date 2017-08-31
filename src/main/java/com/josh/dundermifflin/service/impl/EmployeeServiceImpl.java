@@ -54,4 +54,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.findImageByEid(eid);
 	}
 
+	public String deleteEmployee(int employeeId) {
+		return employeeDao.deleteEmployee(employeeId);
+	}
+
 }

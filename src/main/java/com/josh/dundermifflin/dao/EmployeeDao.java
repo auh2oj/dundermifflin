@@ -15,4 +15,6 @@ public interface EmployeeDao {
 	public String updateEmployee(Employee employee);
 	
 	public byte[] findImageByEid(int eid);
+	
+	public String deleteEmployee(int employeeId);
 }

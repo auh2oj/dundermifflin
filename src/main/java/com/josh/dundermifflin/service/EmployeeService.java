@@ -15,4 +15,6 @@ public interface EmployeeService {
 	public String updateEmployee(EmployeeForm ef);
 	
 	public byte[] findImageByEid(int eid);
+	
+	public String deleteEmployee(int employeeId);
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 
 import com.josh.dundermifflin.dao.EmployeeDao;
@@ -73,6 +74,12 @@ public class EmployeeController {
 			out.write(img);
 			out.flush();
 		}
+	}
+	
+	@RequestMapping(value="deleteEmployee",method=RequestMethod.GET)
+	public String deleteEmployee(@RequestParam("eid") int employeeId) {
+		String result = employeeService.deleteEmployee(employeeId);
+		return "redirect:showEmployees.do";
 	}
 	
 	/**
