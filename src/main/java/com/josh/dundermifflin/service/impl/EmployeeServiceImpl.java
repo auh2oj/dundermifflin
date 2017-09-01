@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -50,11 +51,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.changePhoto(e);
 	}
 	
-	public String updateEmployee(EmployeeForm ef) {
+	@CachePut(value="employee-cache", key="#ef.employeeId")
+	public EmployeeForm updateEmployee(EmployeeForm ef) {
 		Employee e = new Employee();
 		BeanUtils.copyProperties(ef, e);
-		return employeeDao.updateEmployee(e);
+		Employee de=employeeDao.updateEmployee(e);
+		EmployeeForm ref=new EmployeeForm();
+		BeanUtils.copyProperties(de, ref);
+		return ref;
 	}
+	
 
 	//@Cacheable(value="employee-cache", key="#eid")
 	public byte[] findImageByEid(int eid) {

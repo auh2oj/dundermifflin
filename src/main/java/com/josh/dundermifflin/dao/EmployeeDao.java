@@ -16,7 +16,7 @@ public interface EmployeeDao {
 	
 	public String changePhoto(Employee employee);
 	
-	public String updateEmployee(Employee employee);
+	public Employee updateEmployee(Employee employee);
 	
 	public byte[] findImageByEid(int eid);
 	

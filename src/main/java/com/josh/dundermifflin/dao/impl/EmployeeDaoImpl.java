@@ -49,14 +49,14 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		return ApplicationConstants.SUCCESS;
 	}
 	
-	public String updateEmployee(Employee employee) {
+	public Employee updateEmployee(Employee employee) {
 		Employee e = getHibernateTemplate().load(Employee.class, employee.getEmployeeId());
 		//BeanUtils.copyProperties(employee, e);
 		e.setName(employee.getName());
 		e.setEmail(employee.getEmail());
 		e.setDepartment(employee.getDepartment());
 		e.setBranch(employee.getBranch());
-		return ApplicationConstants.SUCCESS;
+		return e;
 	}
 
 	public byte[] findImageByEid(int eid) {
