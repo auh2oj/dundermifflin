@@ -32,6 +32,7 @@ public class EmployeeDirectoryDataLoader implements ServletContextListener {
 
 	/**
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
+     * Loads Employee data into EHCache upon application context initialization
      */
     public void contextInitialized(ServletContextEvent sce)  { 
 		WebApplicationContext springRootWebContainer = ContextLoader.getCurrentWebApplicationContext();

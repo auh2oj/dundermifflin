@@ -1,6 +1,7 @@
 package com.josh.dundermifflin.web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -44,9 +45,20 @@ public class EmployeeController {
 	
 	@RequestMapping(value="showEmployees", method=RequestMethod.GET)
 	public String showEmployees(Model model) {
-		List<EmployeeForm> employeeList = employeeService.listEmployees();
+		//TODO: fix
+		List<Integer> employeeIdList = employeeService.listEmployeesByEid();
+		List<EmployeeForm> employeeList = new ArrayList<EmployeeForm>();
+		for (Integer eid : employeeIdList) {
+			EmployeeForm ef = employeeService.findEmployeeFormByEid(eid);
+			employeeList.add(ef);
+		}
 		model.addAttribute("employeeList", employeeList);
 		return "showEmployees";
+		
+		
+//		List<EmployeeForm> employeeList = employeeService.listEmployees();
+//		model.addAttribute("employeeList", employeeList);
+//		return "showEmployees";
 	}
 	
 	@RequestMapping(value="changeEmployeePhoto.do", method=RequestMethod.POST)

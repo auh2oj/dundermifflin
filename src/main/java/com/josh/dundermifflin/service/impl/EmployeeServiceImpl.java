@@ -6,7 +6,11 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.josh.dundermifflin.dao.EmployeeDao;
 import com.josh.dundermifflin.dao.entity.Employee;
@@ -14,6 +18,7 @@ import com.josh.dundermifflin.service.EmployeeService;
 import com.josh.dundermifflin.web.controller.model.EmployeeForm;
 
 @Service("EmployeeServiceImpl")
+@Transactional(propagation=Propagation.REQUIRED)
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Autowired
@@ -27,6 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return result;
 	}
 
+	@Cacheable(value="employee-cache")
 	public List<EmployeeForm> listEmployees() {
 		List<Employee> employeeList = employeeDao.listEmployees();
 		List<EmployeeForm> employeeFormList = new ArrayList<EmployeeForm>();
@@ -50,10 +56,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.updateEmployee(e);
 	}
 
+	//@Cacheable(value="employee-cache", key="#eid")
 	public byte[] findImageByEid(int eid) {
 		return employeeDao.findImageByEid(eid);
+		//return null;
 	}
 
+	@CacheEvict(value="employee-cache", key="#employeeId")
 	public String deleteEmployee(int employeeId) {
 		return employeeDao.deleteEmployee(employeeId);
 	}
@@ -62,6 +71,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return employeeDao.listEmployeesByEid();
 	}
 
+	@Cacheable(value="employee-cache", key="#eid")
 	public EmployeeForm findEmployeeFormByEid(int eid) {
 		Employee e = employeeDao.findEmployeeByEid(eid);
 		EmployeeForm ef = new EmployeeForm();
