@@ -17,6 +17,7 @@
 		<import resource="employee-service.xml"/>
 		<import resource="spring-hibernate-service.xml"/>
 		<import resource="employee-caching.xml"/>
+		<import resource="employee-advice-dao.xml"/>
 			
 				
 	</beans>		
