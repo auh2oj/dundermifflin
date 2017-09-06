@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.josh.dundermifflin.dao.EmployeeDao;
 import com.josh.dundermifflin.dao.entity.Employee;
+import com.josh.dundermifflin.dao.entity.LoginEntity;
 import com.josh.dundermifflin.util.ApplicationConstants;
 import com.josh.dundermifflin.util.Queries;
 
@@ -77,6 +78,17 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 
 	public Employee findEmployeeByEid(int eid) {
 		return getHibernateTemplate().get(Employee.class, eid);
+	}
+
+	public String authUser(String username, String password) {
+		String role = "";
+		List<LoginEntity> loginList = (List<LoginEntity>) getHibernateTemplate()
+				.find("from LoginEntity where username=? and password=?", username, password);
+		if (loginList.isEmpty()) return role;
+		else {
+			role = loginList.get(0).getRole();
+			return role;
+		}
 	}
 
 }

@@ -21,4 +21,6 @@ public interface EmployeeDao {
 	public byte[] findImageByEid(int eid);
 	
 	public String deleteEmployee(int employeeId);
+	
+	public String authUser(String username, String password);
 }
