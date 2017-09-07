@@ -4,9 +4,15 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+  
+  <session-config>
+  	<session-timeout>10</session-timeout>
+  </session-config>
+  
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  
   <servlet>
     <servlet-name>employee</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -16,6 +22,7 @@
     <servlet-name>employee</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
   <listener>
     <listener-class>com.josh.dundermifflin.util.EmployeeDirectoryDataLoader</listener-class>
   </listener>

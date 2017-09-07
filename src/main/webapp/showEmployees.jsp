@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@page import="com.josh.dundermifflin.web.controller.model.EmployeeForm"%>
 <%@page import="java.util.List"%>
 <html>
@@ -66,6 +68,9 @@
 
 <a href="showEmployees.do"><img alt="" src="img/show-dogs.png" height="120px;" style="margin-left: 200px;"> <span style="font-size: 20px;">Employees</span></a>
 <hr/>
+
+ <a href="${pageContext.request.contextPath}/logout.do"><img alt=""
+ src="${pageContext.request.contextPath}/img/logout.png" style="margin-left: 200px;"> <span style="font-size: 20px;">Logout</span></a>
 
 	<span style="color: red;font-size: 16px;">${message}</span>
   <div class="bs-example">

@@ -14,6 +14,9 @@
  <a href="showEmployees.do"><img alt="" src="img/show-dogs.png" height="120px;" style="margin-left: 200px;"> <span style="font-size: 20px;">Employees</span></a>
 <hr/>
 
+ <a href="${pageContext.request.contextPath}/logout.do"><img alt=""
+ src="${pageContext.request.contextPath}/img/logout.png" style="margin-left: 200px;"> <span style="font-size: 20px;">Logout</span></a>
+
 	<span style="color: red;font-size: 16px;">${message}</span>
     <div style="margin-left: 30px;">
     <form action="addEmployee.do" method="post" enctype="multipart/form-data">>
