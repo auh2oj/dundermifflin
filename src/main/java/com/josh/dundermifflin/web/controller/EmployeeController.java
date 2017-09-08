@@ -28,6 +28,7 @@ import com.josh.dundermifflin.service.EmployeeService;
 import com.josh.dundermifflin.web.controller.model.EmployeeForm;
 
 @Controller
+@RequestMapping("/employee")
 public class EmployeeController {
 	
 	@Autowired
