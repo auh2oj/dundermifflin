@@ -3,6 +3,7 @@ package com.josh.dundermifflin.dao;
 import java.util.List;
 
 import com.josh.dundermifflin.dao.entity.Employee;
+import com.josh.dundermifflin.dao.entity.LoginEntity;
 
 public interface EmployeeDao {
 
@@ -23,4 +24,6 @@ public interface EmployeeDao {
 	public String deleteEmployee(int employeeId);
 	
 	public String authUser(String username, String password);
+
+	public LoginEntity findRoleByUsername(String username);
 }

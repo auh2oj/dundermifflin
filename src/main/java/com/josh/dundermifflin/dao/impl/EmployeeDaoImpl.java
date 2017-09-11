@@ -91,4 +91,15 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		}
 	}
 
+	public LoginEntity findRoleByUsername(String username) {
+		LoginEntity login = null;
+		List<LoginEntity> list = (List<LoginEntity>) getHibernateTemplate().find("from LoginEntity where username=?", username);
+		if (list.isEmpty()){
+			login = null;
+		} else {
+			login = list.get(0);
+		}
+		return login;
+	}
+
 }
