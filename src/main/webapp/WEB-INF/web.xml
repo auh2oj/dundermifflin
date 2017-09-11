@@ -21,10 +21,20 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>employee</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
   
   <listener>
     <listener-class>com.josh.dundermifflin.util.EmployeeDirectoryDataLoader</listener-class>
   </listener>
+  
+	 <filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter> 
+	
+ 	 <filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>

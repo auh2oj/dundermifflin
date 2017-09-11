@@ -46,7 +46,6 @@ public class EmployeeController {
 	
 	@RequestMapping(value="showEmployees", method=RequestMethod.GET)
 	public String showEmployees(Model model) {
-		//TODO: fix
 		List<Integer> employeeIdList = employeeService.listEmployeesByEid();
 		List<EmployeeForm> employeeList = new ArrayList<EmployeeForm>();
 		for (Integer eid : employeeIdList) {

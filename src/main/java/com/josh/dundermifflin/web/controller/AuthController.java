@@ -17,7 +17,7 @@ public class AuthController {
 	@Autowired
 	@Qualifier("AuthServiceImpl")
 	private AuthService authService;
-	
+
 	@RequestMapping(value="auth-user", method=RequestMethod.POST)
 	public String authUser(String username, String password, HttpSession session, Model model) {
 		String redirect = "index";
@@ -29,6 +29,19 @@ public class AuthController {
 			return "redirect:/login.jsp?message=Incorrect username or password.";
 		}
 		return redirect;
+	}
+	
+	
+	@RequestMapping(value="auth", method=RequestMethod.GET)
+	public String login() {
+		System.out.println("Here");
+		return "login";
+	}
+	
+	@RequestMapping(value="sessionTimeout", method=RequestMethod.GET)
+	public String sessionTimeout() {
+		System.out.println("in sessionTimeout");
+		return "login";
 	}
 	
 	@RequestMapping(value="logout", method=RequestMethod.GET)
