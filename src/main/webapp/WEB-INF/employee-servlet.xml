@@ -16,7 +16,7 @@
    <!-- This is the package which contains our controller or model  -->
 	<context:component-scan base-package="com.josh.dundermifflin.web.controller"/>
 	
-	<mvc:default-servlet-handler/>
+<!-- 	<mvc:default-servlet-handler/> -->
 	
 	<!-- to enable spring rest features -->
 	<mvc:annotation-driven/>
