@@ -34,6 +34,8 @@ public class EmployeeSpringSecurityServiceImpl implements UserDetailsService {
 		} else {
 			 user = new User(username, login.getPassword(), true, true, true, true, getAuthorities(login.getRole()));
 		}
+		System.out.println("Login: " + login);
+		System.out.println("User: " + user);
 		return user;
 	}
 	

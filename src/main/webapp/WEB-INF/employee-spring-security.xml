@@ -7,14 +7,15 @@
 			 http://www.springframework.org/schema/security 
                     http://www.springframework.org/schema/security/spring-security-3.2.xsd">
         
- 	<security:http auto-config="true" use-expressions="true" access-denied-page="/accessDenied" >
+ 		<security:http auto-config="true" use-expressions="true" access-denied-page="/accessDenied" >
  	
 		<security:intercept-url pattern="/auth" access="permitAll"/>
 		<security:intercept-url pattern="/sessionTimeout" access="permitAll"/>
+		<security:intercept-url pattern="/img/**" access="permitAll"/>
 		<security:intercept-url pattern="/invalidLogin" access="permitAll"/>
 		<security:intercept-url pattern="/**" access="hasRole('admin')"/> 
 		
-		<security:form-login login-page="/auth" authentication-failure-url="/invalidLogin" default-target-url="/index"/>
+		<security:form-login login-page="/auth" authentication-failure-url="/invalidLogin" default-target-url="/index.jsp"/>
 		
 		<security:logout invalidate-session="true" logout-success-url="/auth" logout-url="/logout"/>
 		

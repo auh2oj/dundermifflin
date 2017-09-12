@@ -12,26 +12,26 @@
 
 </head>
 <body>
-	<img alt="" src="img/login.png" height="150px;" style="margin: 20px">
+	<!-- <img alt="" src="img/login.png" height="150px;" style="margin: 20px"> -->
 	<hr/>
 	
     <div style="margin-left: 30px;">
-    <form action="auth-user.do" method="post">
+    <form action="j_spring_security_check" method="post">
         <div class="form-group">
             <label>Username:</label>
-            <input type="text" class="form-control"  name="username" placeholder="Username" style="width: 300px;"/>
+            <input type="text" class="form-control"  name="j_username" placeholder="Username" style="width: 300px;"/>
         </div>
 
 	<div class="form-group">
             <label>Password:</label>
-            <input type="password" class="form-control"  name="password" placeholder="password" style="width: 300px;"/>
+            <input type="password" class="form-control"  name="j_password" placeholder="password" style="width: 300px;"/>
         </div>
                 
         <button type="submit" class="btn btn-danger">Login</button>
     </form>
     <br/><br/>
     <span style="color: red;font-size: 16px;">${param.message}</span>
-    <label style="color:blue"><img alt="" src="img/result.png" height="100px;">
-    </div>
+<!--     <label style="color:blue"><img alt="" src="img/result.png" height="100px;">
+ -->    </div>
 </body>
 </html>

@@ -31,16 +31,20 @@ public class AuthController {
 		return redirect;
 	}
 	
+	@RequestMapping(value="home", method=RequestMethod.GET)
+	public String home() {
+		System.out.println("At Home");
+		return "home";
+	}	
+	
 	
 	@RequestMapping(value="auth", method=RequestMethod.GET)
 	public String login() {
-		System.out.println("Here");
 		return "login";
 	}
 	
 	@RequestMapping(value="sessionTimeout", method=RequestMethod.GET)
 	public String sessionTimeout() {
-		System.out.println("in sessionTimeout");
 		return "login";
 	}
 	
