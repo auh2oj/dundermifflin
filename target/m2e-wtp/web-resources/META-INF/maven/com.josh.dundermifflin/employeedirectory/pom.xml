@@ -164,6 +164,25 @@
          <artifactId>spring-security-config</artifactId>
          <version>${spring.security.version}</version>
      </dependency>
+     
+		<!-- Used to generate JSON response -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			 <version>2.8.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			 <version>2.8.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			 <version>2.8.1</version>
+		</dependency>
  
   </dependencies>
   

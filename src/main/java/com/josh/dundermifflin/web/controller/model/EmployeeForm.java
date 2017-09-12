@@ -2,6 +2,11 @@ package com.josh.dundermifflin.web.controller.model;
 
 import java.util.Arrays;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@XmlRootElement
 public class EmployeeForm {
 
 	private int employeeId;
@@ -10,6 +15,7 @@ public class EmployeeForm {
 	private String department;
 	private String branch;
 	private String managerId;
+	@JsonIgnore
 	private byte[] image;
 	
 	public EmployeeForm() {}
