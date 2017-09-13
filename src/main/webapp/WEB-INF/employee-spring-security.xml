@@ -15,7 +15,7 @@
 		<security:intercept-url pattern="/invalidLogin" access="permitAll"/>
 		<security:intercept-url pattern="/**" access="hasRole('admin')"/> 
 		
-		<security:form-login login-page="/auth" authentication-failure-url="/invalidLogin" default-target-url="/index.jsp"/>
+		<security:form-login login-page="/auth" authentication-failure-url="/invalidLogin.jsp" default-target-url="/index.jsp"/>
 		
 		<security:logout invalidate-session="true" logout-success-url="/auth" logout-url="/logout"/>
 		
