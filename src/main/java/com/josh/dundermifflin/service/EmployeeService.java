@@ -21,4 +21,6 @@ public interface EmployeeService {
 	public byte[] findImageByEid(int eid);
 	
 	public String deleteEmployee(int employeeId);
+	
+	public List<EmployeeForm> findEmployeeByName(String ename);
 }

@@ -85,4 +85,15 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return ef;
 	}
 
+	public List<EmployeeForm> findEmployeeByName(String ename) {
+		List<Employee> employeeList = employeeDao.findEmployeeByName(ename);
+		List<EmployeeForm> employeeFormList = new ArrayList<EmployeeForm>();
+		for (Employee e : employeeList) {
+			EmployeeForm ef = new EmployeeForm();
+			BeanUtils.copyProperties(e, ef);
+			employeeFormList.add(ef);
+		}
+		return employeeFormList;
+	}
+
 }

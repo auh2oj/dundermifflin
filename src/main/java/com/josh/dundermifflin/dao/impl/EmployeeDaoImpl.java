@@ -102,4 +102,14 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao 
 		return login;
 	}
 
+	/*
+	 * Retrieves Employee from the database that has the name @param ename
+	 * @see com.josh.dundermifflin.dao.EmployeeDao#findEmployeeByName(java.lang.String)
+	 */
+	public List<Employee> findEmployeeByName(String ename) {
+		List<Employee> employeeList = (List<Employee>) super.getHibernateTemplate()
+				.find("from Employee where name=?", ename);
+		return employeeList;
+	}
+
 }

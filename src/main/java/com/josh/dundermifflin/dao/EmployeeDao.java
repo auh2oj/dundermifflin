@@ -26,4 +26,6 @@ public interface EmployeeDao {
 	public String authUser(String username, String password);
 
 	public LoginEntity findRoleByUsername(String username);
+	
+	public List<Employee> findEmployeeByName(String ename);
 }
