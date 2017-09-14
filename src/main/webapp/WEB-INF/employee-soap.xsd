@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.dundermifflin.com/employee-soap"
+xmlns:tns="http://www.dundermifflin.com/employee-soap" elementFormDefault="qualified">
+
+<!-- Root element of the XML instance document created by this XSD file -->
+<element name="employees" type="tns:Employees" />
+
+<complexType name="Employees">
+
+	<sequence>
+		<element name="employee" type="tns:Employee" minOccurs="0" maxOccurs="unbounded" />
+	</sequence>
+
+</complexType>
+
+<!-- Analogous to Employee class -->
+<complexType name="Employee">
+
+	<sequence>
+		<element name="name" type="string" minOccurs="1" maxOccurs="1" />
+		<element name="email" type="string" minOccurs="0" maxOccurs="1" />
+		<element name="department" type="string" minOccurs="0" maxOccurs="1" />
+		<element name="branch" type="string" minOccurs="0" maxOccurs="1" />
+	</sequence>
+	<attribute name="id" type="int" default="1" />
+
+</complexType>
+
+</schema>

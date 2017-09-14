@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:employees xmlns:tns="http://www.dundermifflin.com/employee-soap"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.dundermifflin.com/employee-soap employee-soap.xsd ">
+	
+	<tns:employee id="100">
+		<tns:name>Michael Scott</tns:name>
+		<tns:email>mscott@dm.com</tns:email>
+		<tns:department>Manager</tns:department>
+		<tns:branch>Scranton, PA</tns:branch>
+	</tns:employee>
+	
+	<tns:employee id="200">
+		<tns:name>Jim Halpert</tns:name>
+		<tns:email>jhalpert@dm.com</tns:email>
+		<tns:department>Sales</tns:department>
+		<tns:branch>Scranton, PA</tns:branch>
+	</tns:employee>
+	
+	<tns:employee id="300">
+		<tns:name>Dwight Schrute</tns:name>
+		<tns:email>dschrute@dm.com</tns:email>
+		<tns:department>Sales</tns:department>
+		<tns:branch>Scranton, PA</tns:branch>
+	</tns:employee>
+	
+</tns:employees>
