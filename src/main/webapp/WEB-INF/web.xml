@@ -15,9 +15,22 @@
   </listener>
   
   <!-- Will read the /WEB-INF/sun-jaxws.xml file and publish the registered web service to the SOAP web service container -->
-  <listener>
+<!--   <listener>
   	<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
-  </listener>
+  </listener> -->
+  
+  
+	<servlet>
+	    <servlet-name>metro</servlet-name>
+	    <servlet-class>
+	      com.sun.xml.ws.transport.http.servlet.WSSpringServlet
+	    </servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>metro</servlet-name>
+	    <url-pattern>/employeeSoapWebService</url-pattern>
+	</servlet-mapping>
   
   <servlet>
     <servlet-name>employee</servlet-name>
@@ -38,6 +51,7 @@
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter> 
 	
+	<!-- Comment out the filter mapping below to turn off Spring Security -->
  	 <filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 	    <url-pattern>/*</url-pattern>
